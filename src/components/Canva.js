@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Stage, Layer, Rect } from "react-konva";
 
 const DUMMY_DATA = [
@@ -19,42 +21,162 @@ const DUMMY_DATA = [
 ];
 
 const Canva = () => {
-  //   (function loggingData() {
-  //     DUMMY_DATA.map((robot) => {
-  //       console.log(robot.grid_number);
-  //     });
-  //   })();
+  const [selectedId, setSelectedId] = useState("0");
+
+  const highlightHandler = (e) => {
+    console.log(e.target);
+    //console.log(e.target.attrs.id);
+    setSelectedId(e.target.attrs.id);
+    console.log(e.target.attrs.id);
+  };
 
   return (
     <>
-      <Stage width={window.innerWidth} height={window.innerHeight}>
-        <Layer>
-          <Rect
-            x={20}
-            y={50}
-            width={600}
-            height={600}
-            shadowBlur={10}
-            fill="red"
-          ></Rect>
-          <Rect
-            x={20}
-            y={50}
-            width={200}
-            height={200}
-            fill="magenta"
-            box-number="1"
-          ></Rect>
-          <Rect x={220} y={50} width={200} height={200} fill="blue"></Rect>
-          <Rect x={420} y={50} width={200} height={200} fill="green"></Rect>
-          <Rect x={20} y={250} width={200} height={200} fill="yellow"></Rect>
-          <Rect x={220} y={250} width={200} height={200} fill="orange"></Rect>
-          <Rect x={420} y={250} width={200} height={200} fill="black"></Rect>
-          <Rect x={20} y={450} width={200} height={200} fill="#B2C8DF"></Rect>
-          <Rect x={220} y={450} width={200} height={200} fill="#513252"></Rect>
-          <Rect x={420} y={450} width={200} height={200} fill="#003865"></Rect>
-        </Layer>
-      </Stage>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+          width: "600px",
+          transform: "translate(2rem,2rem)",
+        }}
+      >
+        <Stage
+          width={200}
+          height={200}
+
+          //style={{ transform: "translateY(100px)" }}
+        >
+          <Layer>
+            <Rect
+              onClick={highlightHandler}
+              width={200}
+              height={200}
+              fill={selectedId === "1" ? "black" : "grey"}
+              id="1"
+            ></Rect>
+          </Layer>
+        </Stage>
+        <Stage
+          width={200}
+          height={200}
+          //style={{ transform: "translateY(100px)" }}
+        >
+          <Layer>
+            <Rect
+              width={200}
+              height={200}
+              onClick={highlightHandler}
+              fill={selectedId === "2" ? "black" : "red"}
+              id="2"
+            ></Rect>
+          </Layer>
+        </Stage>
+        <Stage
+          width={200}
+          height={200}
+          //style={{ transform: "translateY(100px)" }}
+        >
+          <Layer>
+            <Rect
+              width={200}
+              height={200}
+              onClick={highlightHandler}
+              fill={selectedId === "3" ? "black" : "green"}
+              id="3"
+            ></Rect>
+          </Layer>
+        </Stage>
+        <Stage
+          width={200}
+          height={200}
+          //style={{ transform: "translateY(100px)" }}
+        >
+          <Layer>
+            <Rect
+              width={200}
+              height={200}
+              onClick={highlightHandler}
+              fill={selectedId === "4" ? "black" : "yellow"}
+              id="4"
+            ></Rect>
+          </Layer>
+        </Stage>
+        <Stage
+          width={200}
+          height={200}
+          //style={{ transform: "translateY(100px)" }}
+        >
+          <Layer>
+            <Rect
+              width={200}
+              height={200}
+              onClick={highlightHandler}
+              fill={selectedId === "5" ? "black" : "purple"}
+              id="5"
+            ></Rect>
+          </Layer>
+        </Stage>
+        <Stage
+          width={200}
+          height={200}
+          //style={{ transform: "translateY(100px)" }}
+        >
+          <Layer>
+            <Rect
+              width={200}
+              height={200}
+              onClick={highlightHandler}
+              fill={selectedId === "6" ? "black" : "orange"}
+              id="6"
+            ></Rect>
+          </Layer>
+        </Stage>
+        <Stage
+          width={200}
+          height={200}
+          //style={{ transform: "translateY(100px)" }}
+        >
+          <Layer>
+            <Rect
+              width={200}
+              height={200}
+              onClick={highlightHandler}
+              fill={selectedId === "7" ? "black" : "magenta"}
+              id="7"
+            ></Rect>
+          </Layer>
+        </Stage>
+        <Stage
+          width={200}
+          height={200}
+          //style={{ transform: "translateY(100px)" }}
+        >
+          <Layer>
+            <Rect
+              width={200}
+              height={200}
+              onClick={highlightHandler}
+              fill={selectedId === "8" ? "black" : "blue"}
+              id="8"
+            ></Rect>
+          </Layer>
+        </Stage>
+        <Stage
+          width={200}
+          height={200}
+          //style={{ transform: "translateY(100px)" }}
+        >
+          <Layer>
+            <Rect
+              width={200}
+              height={200}
+              onClick={highlightHandler}
+              fill={selectedId === "9" ? "black" : "pink"}
+              id="9"
+            ></Rect>
+          </Layer>
+        </Stage>
+      </div>
     </>
   );
 };
